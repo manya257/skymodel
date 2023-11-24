@@ -3,7 +3,7 @@
 import streamlit as st
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-import cv2
+#import cv2
 from PIL import Image, ImageOps
 import numpy as np
 import gdown
