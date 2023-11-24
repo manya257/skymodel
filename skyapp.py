@@ -1,3 +1,12 @@
+# your Streamlit app script
+import subprocess
+
+# Install system-level dependencies
+subprocess.run(['apt-get', 'update', '-y'])
+subprocess.run(['apt-get', 'install', '-y', 'mesa-utils'])
+
+# Rest of your imports and Streamlit app code
+
 # Import libraries
 import streamlit as st
 import tensorflow as tf
