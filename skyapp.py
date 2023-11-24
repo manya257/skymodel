@@ -1,13 +1,9 @@
-
 # Import libraries
 import streamlit as st
-import tensorflow as tf
 from tensorflow.keras.models import load_model
-#import cv2
 from PIL import Image, ImageOps
 import numpy as np
 import gdown
-import os
 
 # Set Streamlit options
 st.set_option('deprecation.showfileUploaderEncoding', False)
@@ -15,7 +11,7 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 # Function to download the model file from Google Drive
 @st.cache(allow_output_mutation=True)
 def download_model():
-    model_url = 'https://drive.google.com/file/d/1-4f1zYf7GX-3jjuRctZMWH3PwvD5t-VH/view?usp=sharing'  
+    model_url = 'https://drive.google.com/uc?id=1-4f1zYf7GX-3jjuRctZMWH3PwvD5t-VH'
     output_path = 'your_model.hdf5'
     gdown.download(model_url, output_path, quiet=False)
     return output_path
@@ -31,7 +27,6 @@ model = load_model()
 
 # Streamlit app title and description
 st.write("# Sky Image Classifier")
-#st.write("Upload an image, and the classifier will predict whether it's Saturn, Jupiter, or Moon.")
 
 # File uploader
 file = st.file_uploader("Please upload an image", type=["jpg", "png"])
