@@ -29,8 +29,8 @@ def load_model():
 model = load_model()
 
 # Streamlit app title and description
-st.write("# Saturn-Jupiter-Moon Image Classifier")
-st.write("Upload an image, and the classifier will predict whether it's Saturn, Jupiter, or Moon.")
+st.write("# Sky Image Classifier")
+#st.write("Upload an image, and the classifier will predict whether it's Saturn, Jupiter, or Moon.")
 
 # File uploader
 file = st.file_uploader("Please upload an image", type=["jpg", "png"])
