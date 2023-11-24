@@ -1,4 +1,3 @@
-
 # Import libraries
 import streamlit as st
 import tensorflow as tf
@@ -6,14 +5,25 @@ from tensorflow.keras.models import load_model
 import cv2
 from PIL import Image, ImageOps
 import numpy as np
+import gdown
+import os
 
 # Set Streamlit options
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
+# Function to download the model file from Google Drive
+@st.cache(allow_output_mutation=True)
+def download_model():
+    model_url = 'https://drive.google.com/file/d/1-4f1zYf7GX-3jjuRctZMWH3PwvD5t-VH/view?usp=sharing'  
+    output_path = 'your_model.hdf5'
+    gdown.download(model_url, output_path, quiet=False)
+    return output_path
+
 # Load the pre-trained Saturn-Jupiter-Moon classification model
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = load_model('/content/drive/MyDrive/saturn_jupiter_moon_classifier.h5')  # Adjust the path to your model
+    model_path = download_model()
+    model = load_model(model_path)
     return model
 
 model = load_model()
